@@ -14,3 +14,9 @@
     left: 50%;
     top: 40px;
 }
+.user_chart_wrap {
+    margin-top: 50px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}

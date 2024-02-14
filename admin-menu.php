@@ -28,7 +28,7 @@ function registered_user_page_content() {
             <div>
                 <div id="demoEvoCalendar"></div>
 
-                <div style="margin-top: 50px">
+                <div class="user_chart_wrap">
                     <canvas id="user_chart"></canvas>
                 </div>
 
