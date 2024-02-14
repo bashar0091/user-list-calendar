@@ -9,7 +9,7 @@ jQuery(document).ready(function($){
 
 
   // caledar click to show user 
-  $('.calendar-day .day').on('click', function(){
+  $('#demoEvoCalendar').on('click', '.calendar-months .month, .calendar-day .day', function() {
     var get_this = $(this);
     var get_date = get_this.attr('data-date-val');
 

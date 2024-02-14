@@ -25,6 +25,7 @@ function admin_enqueue_scripts() {
     wp_enqueue_style('custom_admin_css', plugin_dir_url(__FILE__) . '/assets/css/custom-admin.css', '', '1.0.0', '');
 
     // js file 
+    wp_enqueue_script('chart_script', plugin_dir_url(__FILE__) . 'assets/js/chart.js', array('jquery'), '1.0.0', false);
     wp_enqueue_script('evo_calendar_script', plugin_dir_url(__FILE__) . 'assets/js/evo-calendar.min.js', array('jquery'), '1.0.0', true);
     wp_enqueue_script('custom_admin_script', plugin_dir_url(__FILE__) . 'assets/js/custom-admin.js', array('jquery'), '1.0.0', true);
 

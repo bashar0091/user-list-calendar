@@ -28,33 +28,51 @@ function registered_user_page_content() {
             <div>
                 <div id="demoEvoCalendar"></div>
 
-                <div>
-                <canvas id="myChart"></canvas>
+                <div style="margin-top: 50px">
+                    <canvas id="user_chart"></canvas>
                 </div>
 
-                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <?php
+                    function count_users_in_month($year, $month) {
+                        $args = array(
+                            'date_query' => array(
+                                array(
+                                    'year' => $year,
+                                    'month' => $month,
+                                ),
+                            ),
+                        );
+                        $users = get_users($args);
+                        return count($users);
+                    }
 
+                    $user_counts = array();
+
+                    for ($i = 1; $i <= 6; $i++) {
+                        $user_counts[] = count_users_in_month(2024, $i);
+                    }
+                ?>
                 <script>
-                const ctx = document.getElementById('myChart');
+                    const ctx = document.getElementById('user_chart');
 
-                new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                    datasets: [{
-                        label: '# of Votes',
-                        data: [12, 19, 3, 5, 2, 3],
-                        borderWidth: 1
-                    }]
-                    },
-                    options: {
-                    scales: {
-                        y: {
-                        beginAtZero: true
+                    new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                        labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                        datasets: [{
+                            label: 'This Year',
+                            data: <?php echo json_encode($user_counts); ?>,
+                            borderWidth: 2
+                        }]
+                        },
+                        options: {
+                        scales: {
+                            y: {
+                            beginAtZero: true
+                            }
                         }
-                    }
-                    }
-                });
+                        }
+                    });
                 </script>
 
             </div>
