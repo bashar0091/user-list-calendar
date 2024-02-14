@@ -1,0 +1,16 @@
+.cols_2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.user_list_wrap {
+    position: relative;
+}
+.user_list_wrap.processing {
+    opacity: 0.5;
+}
+.user_list_wrap .spinner {
+    position: absolute;
+    left: 50%;
+    top: 40px;
+}
